@@ -39,6 +39,7 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
+        // save user data in firestore
         Firestore.instance
             .collection('users')
             .document(authResult.user.uid)
