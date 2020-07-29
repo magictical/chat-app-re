@@ -19,7 +19,7 @@ class Messages extends StatelessWidget {
             stream: Firestore.instance
                 .collection('chat')
                 // orderBy() 내부에서 다시 order 조절 가능
-                .orderBy('createdAt', descending: false)
+                .orderBy('createdAt', descending: true)
                 .snapshots(),
             builder: (ctx, snapShot) {
               if (snapShot.connectionState == ConnectionState.waiting) {
@@ -35,7 +35,7 @@ class Messages extends StatelessWidget {
                 itemCount: chatDocs.length,
                 itemBuilder: (ctx, index) => MessageBubble(
                   chatDocs[index]['text'],
-                  chatDocs[index]['userId'],
+                  chatDocs[index]['userName'],
                   chatDocs[index]['userId'] == futureSnapshot.data.uid,
                   // flutter will update message bubble efficiently with key value.
                   key: ValueKey(chatDocs[index].documentID),
