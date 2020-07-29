@@ -1,11 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
   final String message;
+  final String userId;
   final bool isMe;
   final Key key;
 
-  MessageBubble(this.message, this.isMe, {this.key});
+  MessageBubble(this.message, this.userId, this.isMe, {this.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +33,39 @@ class MessageBubble extends StatelessWidget {
             vertical: 4,
             horizontal: 8,
           ),
-          child: Text(
-            message,
-            style: TextStyle(
-              color: isMe
-                  ? Colors.black
-                  : Theme.of(context).accentTextTheme.title.color,
-            ),
+          child: Column(
+            crossAxisAlignment:
+                isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: <Widget>[
+              FutureBuilder(
+                future: Firestore.instance
+                    .collection('users')
+                    .document(userId)
+                    .get(),
+                builder: (context, snapShot) {
+                  if (snapShot.connectionState == ConnectionState.waiting) {
+                    return Text('waiting...');
+                  }
+                  return Text(
+                    snapShot.data['userName'],
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: isMe
+                          ? Colors.black
+                          : Theme.of(context).accentTextTheme.title.color,
+                    ),
+                  );
+                },
+              ),
+              Text(
+                message,
+                style: TextStyle(
+                  color: isMe
+                      ? Colors.black
+                      : Theme.of(context).accentTextTheme.title.color,
+                ),
+              ),
+            ],
           ),
         ),
       ],

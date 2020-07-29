@@ -31,9 +31,11 @@ class Messages extends StatelessWidget {
               final chatDocs = snapShot.data.documents;
 
               return ListView.builder(
+                reverse: true,
                 itemCount: chatDocs.length,
                 itemBuilder: (ctx, index) => MessageBubble(
                   chatDocs[index]['text'],
+                  chatDocs[index]['userId'],
                   chatDocs[index]['userId'] == futureSnapshot.data.uid,
                   // flutter will update message bubble efficiently with key value.
                   key: ValueKey(chatDocs[index].documentID),
