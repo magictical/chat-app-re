@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../chat/new_message.dart';
-import '../chat/messages.dart';
+import '../widgets/chat/new_message.dart';
+import '../widgets/chat/messages.dart';
 
 class ChatScreen extends StatelessWidget {
   @override
