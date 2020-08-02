@@ -24,8 +24,10 @@ class _NewMessageState extends State<NewMessage> {
       'createdAt': Timestamp.now(),
       'userId': user.uid,
       'userName': userData['userName'],
+      'userImage': userData['image_url'],
     });
     setState(() {
+      _enteredMessage = '';
       _sendTextController.text = '';
       _sendTextController.clear();
     });
