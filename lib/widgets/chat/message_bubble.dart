@@ -18,7 +18,6 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double maxWidth = MediaQuery.of(context).size.width - 50;
-    print(maxWidth);
     return Stack(
       children: <Widget>[
         Row(
