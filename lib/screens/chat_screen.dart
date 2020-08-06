@@ -13,6 +13,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
+    super.initState();
     final fbm = FirebaseMessaging();
     // ask permission for IOS. I skip them all coz don't have device
     fbm.requestNotificationPermissions();
@@ -27,7 +28,6 @@ class _ChatScreenState extends State<ChatScreen> {
       print(msg);
       return;
     });
-    super.initState();
   }
 
   @override
@@ -37,6 +37,8 @@ class _ChatScreenState extends State<ChatScreen> {
         title: Text('FlutterChat'),
         actions: <Widget>[
           DropdownButton(
+            // hide under borderline
+            underline: Container(),
             icon: Icon(
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
