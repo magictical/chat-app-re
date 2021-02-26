@@ -19,8 +19,8 @@ samples, guidance on mobile development, and a full API reference.
 
 -----
 sites for storing
-https://amazing-lamarr-2ead14.netlify.app/
-https://infallible-mcnulty-be3ef6.netlify.app/
-https://peaceful-allen-74d769.netlify.app/
-https://floating-sierra-11538.herokuapp.com/
-https://morning-meadow-67718.herokuapp.com/
+https://amazing-lamarr-2ead14.netlify.app/ <br>
+https://infallible-mcnulty-be3ef6.netlify.app/ <br>
+https://peaceful-allen-74d769.netlify.app/ <br>
+https://floating-sierra-11538.herokuapp.com/ <br>
+https://morning-meadow-67718.herokuapp.com/ <br>
